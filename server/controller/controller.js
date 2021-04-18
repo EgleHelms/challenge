@@ -31,7 +31,7 @@ const passGen = (req, res) =>{
 function passStringGen(minLength, numNums, specCharNum){
 
     let letterNum = minLength - numNums - specCharNum;
-    if (letterNum < 2) letterNum = 2;
+    if (letterNum < 1) letterNum = 1;
 
 
     let randomCharArray = [];
@@ -47,11 +47,14 @@ function passStringGen(minLength, numNums, specCharNum){
         }
 
         for (let j=1; j<=letterNum; j++){
-            let letterLower = getRandomLower();
-            randomCharArray.push(letterLower);
-            let letterUpper = getRandomUpper();
-            randomCharArray.push(letterUpper);
-
+            if (j % 2){
+                let letterLower = getRandomLower();
+                randomCharArray.push(letterLower);  
+            }
+            else{
+                let letterUpper = getRandomUpper();
+                randomCharArray.push(letterUpper);  
+            }
         }
 
     //to shuffle
