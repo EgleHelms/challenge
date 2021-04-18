@@ -22,10 +22,10 @@ API call with parameters in {number}
 
 Defaults that are in the program to guarantee at least minimum security password: 
 
-Minimum length = 8
-Number of special characters = 1
-Number of numbers = 1
-Number of passwords to be created = 1
+* Minimum length = 8
+* Number of special characters = 1
+* Number of numbers = 1
+* Number of passwords to be created = 1
 
 #### Secure password definition:
 A password that is hard to detect both by humans and by the computer. 
