@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate your secure passwords</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid mt-4 ml-5 pl-4">
+        <h1>Generate your password</h1>
+        <h3>Choose parameters for your password:</h3>
+</div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+                <form action="/" method="GET">
+                    <div class="form-group">
+                        <label for="minLength">Min. length:</label>
+                        <input id="minLength" class="form-control" type="number" min="8" value="8" name="passLength" placeholder="Number"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="specCharNum">Number of special characters:</label>
+                        <input id="specCharNum" class="form-control"type="number" min="1" value="1" name="specCharNum" placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="numsNum">Number of numbers:</label>
+                        <input id="numsNum" class="form-control" type="number" min="1" value="1" name="numsNum" placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="numOfPasswords">How many passwords do you need?</label>
+                        <input id="numOfPasswords" class="form-control" type="number" min="1" value="1" name="numOfPasswords" placeholder="Number">
+                    </div>
+                    <button class="btn btn-primary" type="submit" id="generateBtn">Generate Passwords</button>
+                </form>
+                <div id="resultDiv" class="mt-4">
+                    <h3>Result:</h3>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        const minLength = document.getElementById("minLength");
+        const specCharNum = document.getElementById("specCharNum");
+        const numsNum = document.getElementById("numsNum");
+        const numOfPasswords = document.getElementById("numOfPasswords");
+        const generateBtn= document.getElementById("generateBtn");
+        const resultDiv = document.getElementById("resultDiv");
+
+        generateBtn.addEventListener("click", (e) =>{
+            e.preventDefault();
+
+            fetch(`http://localhost:5000?minLength=${minLength.value}&specCharNum=${specCharNum.value}&numsNum=${numsNum.value}&numOfPasswords=${numOfPasswords.value}`)
+            .then(response => {
+
+                if(response.status === 200) {
+                    response.json().then(data => {
+                        const p = document.createElement("p");
+                        p.innerText = JSON.stringify(data);
+                        resultDiv.append(p);
+                    }).catch(err =>{
+                           alert("Unknown error.")
+                    })
+                } else{
+                    alert("Server response error.")
+                }
+            }).catch(err =>{
+                alert("Server request error.")
+            })
+        });
+
+    </script>
+</body>
+</html>
