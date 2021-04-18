@@ -18,19 +18,19 @@
                 <form action="/" method="GET">
                     <div class="form-group">
                         <label for="minLength">Min. length:</label>
-                        <input id="minLength" class="form-control" type="number" min="8" value="8" name="passLength" placeholder="Number"> 
+                        <input id="minLength" class="form-control" type="text" min="8" value="8" name="passLength" placeholder="Number"> 
                     </div>
                     <div class="form-group">
                         <label for="specCharNum">Number of special characters:</label>
-                        <input id="specCharNum" class="form-control"type="number" min="1" value="1" name="specCharNum" placeholder="Number">
+                        <input id="specCharNum" class="form-control"type="text" min="1" value="1" name="specCharNum" placeholder="Number">
                     </div>
                     <div class="form-group">
                         <label for="numsNum">Number of numbers:</label>
-                        <input id="numsNum" class="form-control" type="number" min="1" value="1" name="numsNum" placeholder="Number">
+                        <input id="numsNum" class="form-control" type="text" min="1" value="1" name="numsNum" placeholder="Number">
                     </div>
                     <div class="form-group">
                         <label for="numOfPasswords">How many passwords do you need?</label>
-                        <input id="numOfPasswords" class="form-control" type="number" min="1" value="1" name="numOfPasswords" placeholder="Number">
+                        <input id="numOfPasswords" class="form-control" type="text" min="1" value="1" name="numOfPasswords" placeholder="Number">
                     </div>
                     <button class="btn btn-primary" type="submit" id="generateBtn">Generate Passwords</button>
                 </form>
@@ -53,9 +53,8 @@
         generateBtn.addEventListener("click", (e) =>{
             e.preventDefault();
 
-            fetch(`http://localhost:5000?minLength=${minLength.value}&specCharNum=${specCharNum.value}&numsNum=${numsNum.value}&numOfPasswords=${numOfPasswords.value}`)
+            fetch(`http://localhost:5000?minLength=${minLength.value}&numberOfNumbers=${numsNum.value}&numberOfSpecCharacters=${specCharNum.value}&numOfPasswords=${numOfPasswords.value}`)
             .then(response => {
-
                 if(response.status === 200) {
                     response.json().then(data => {
                         const p = document.createElement("p");

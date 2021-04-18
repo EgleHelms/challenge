@@ -1,7 +1,7 @@
 //packages
 const express = require("express");
 const cors = require("cors");
-const controller = require("./controller/controller.js");
+const { passwordArrayGenerator } = require("./controller/controller.js");
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(cors());  //Cross-origin resource sharing is a mechanism that allows res
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/", controller.passGen)
+app.get("/", passwordArrayGenerator);
 
 app.listen(PORT, () =>{
     console.log(`Server running on http://localhost:${PORT}`)});
