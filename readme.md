@@ -36,7 +36,6 @@ Two things make a password stronger:
 (1) a larger number of characters, and 
 (2) mixing numeric digits, upper and lower case letters and special characters ($, #, etc.). 
 
-
 Example of a call:
 http://localhost:5000?minLength=8&numberOfNumbers=1&numberOfSpecCharacters=1&numberOfPasswords=3
 
@@ -51,9 +50,13 @@ Requirements for running the API:
     * cors 2.8.5
 
 Requirements for testing:
+ - npm packages:
+    * jest 26.6.3
+    * supertest 6.1.3
 
 
 Command to start the API:
 node index.js
 
 Command to run tests:
+npm test

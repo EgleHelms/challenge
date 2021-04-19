@@ -53,7 +53,7 @@
         generateBtn.addEventListener("click", (e) =>{
             e.preventDefault();
 
-            fetch(`http://localhost:5000?minLength=${minLength.value}&numberOfNumbers=${numsNum.value}&numberOfSpecCharacters=${specCharNum.value}&numOfPasswords=${numOfPasswords.value}`)
+            fetch(`http://localhost:5000?minLength=${minLength.value}&numberOfNumbers=${numsNum.value}&numberOfSpecCharacters=${specCharNum.value}&numberOfPasswords=${numOfPasswords.value}`)
             .then(response => {
                 if(response.status === 200) {
                     response.json().then(data => {
