@@ -14,8 +14,8 @@ describe('GET request', () => {
         const response = await request(app).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -25,8 +25,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(2);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -36,8 +36,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(10);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -47,8 +47,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1000);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -58,8 +58,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(4);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(2);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(2);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -69,8 +69,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(20);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(4);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(4);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(4);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(4);
       });
   });
 
@@ -80,8 +80,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -91,8 +91,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(8);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -102,8 +102,8 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(16);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(1);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(1);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(1);
       });
   });
 
@@ -113,7 +113,7 @@ describe('GET request', () => {
         const response = await request(URL).get("/", passwordArrayGenerator);
         expect(JSON.parse(response.text).length).toBe(1);
         expect(JSON.parse(response.text)[0].length).toBeGreaterThanOrEqual(10);
-        expect(JSON.parse(response.text)[0].match(/\d+/).join("").length).toBe(8);
-        expect(JSON.parse(response.text)[0].match(/[\W\S_]/).join("").length).toBe(7);
+        expect(JSON.parse(response.text)[0].match(/\d+/g).join("").length).toBe(8);
+        expect(JSON.parse(response.text)[0].match(/[\!@#$%\^&\*\(\)\{\}\[\]=<>\/,\.]/g).length).toBe(7);
       });
   });

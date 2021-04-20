@@ -9,7 +9,7 @@ exports.passwordArrayGenerator = (req, res) =>{
             numberOfPasswords: Number(req.query.numberOfPasswords)
         }
 
-        //defaults setup
+        //defaults and limitations setup
         inputs.minLength < 8 || isNaN(inputs.minLength) ? inputs.minLength = 8 : null;
         inputs.numberOfNumbers < 1 || isNaN(inputs.numberOfNumbers) ? inputs.numberOfNumbers = 1 : null;
         inputs.numberOfSpecCharacters < 1 || isNaN(inputs.numberOfSpecCharacters) ? inputs.numberOfSpecCharacters = 1 : null;
